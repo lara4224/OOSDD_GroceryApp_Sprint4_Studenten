@@ -49,13 +49,6 @@ namespace Grocery.Core.Services
             return _groceriesRepository.Update(item);
         }
 
-        private void FillService(List<GroceryListItem> groceryListItems)
-        {
-            foreach (GroceryListItem g in groceryListItems)
-            {
-                g.Product = _productRepository.Get(g.ProductId) ?? new(0, "", 0);
-            }
-        }
         public List<BestSellingProducts> GetBestSellingProducts(int topX = 5)
         {
             // Haal alle GroceryListItems op (elke aankoop van een product)
@@ -94,6 +87,14 @@ namespace Grocery.Core.Services
             }
 
             return result;
+        }
+
+        private void FillService(List<GroceryListItem> groceryListItems)
+        {
+            foreach (GroceryListItem g in groceryListItems)
+            {
+                g.Product = _productRepository.Get(g.ProductId) ?? new(0, "", 0);
+            }
         }
     }
 }
