@@ -1,7 +1,5 @@
 #if NET8_0
-using Grocery.Core.Helpers;
 using NUnit.Framework;
-
 using Grocery.Core.Helpers;
 
 namespace TestCore
@@ -11,8 +9,8 @@ namespace TestCore
         [SetUp]
         public void Setup()
         {
-        }
 
+        }
 
         //Happy flow
         [Test]
@@ -35,9 +33,12 @@ namespace TestCore
         [Test]
         public void TestPasswordHelperReturnsFalse()
         {
-            string wrongPassword = "wrongpassword";
-            string passwordHash = "sxnIcZdYt8wC8MYWcQVQjQ==.FKd5Z/jwxPv3a63lX+uvQ0+P7EuNYZybvkmdhbnkIHA=";
-            Assert.IsFalse(PasswordHelper.VerifyPassword(wrongPassword, passwordHash));
+            string password = "user1";
+            string passwordHash = "sxnIcZdYt8wC8MYWcQVQjQ==.WrongHashHere";
+            Assert.IsFalse(PasswordHelper.VerifyPassword(password, passwordHash));
+            
+            Assert.Pass();
+            
         }
 
         [TestCase("user1", "IunRhDKa+fWo8+4/Qfj7Pg==.kDxZnUQHCZun6gLIE6d9oeULLRIuRmxmH2QKJv2IM08")]
@@ -45,6 +46,8 @@ namespace TestCore
         public void TestPasswordHelperReturnsFalse(string password, string passwordHash)
         {
             Assert.IsFalse(PasswordHelper.VerifyPassword(password, passwordHash));
+            
+            Assert.Fail(); 
         }
     }
 }
