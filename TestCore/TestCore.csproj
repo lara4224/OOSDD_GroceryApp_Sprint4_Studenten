@@ -2,8 +2,8 @@
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
 		<IsTestProject>false</IsTestProject>
-	<TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
+		<TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
