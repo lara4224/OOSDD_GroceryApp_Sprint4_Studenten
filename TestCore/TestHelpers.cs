@@ -1,16 +1,15 @@
+#if NET8_0
 using Grocery.Core.Helpers;
+using NUnit.Framework;
 
 namespace TestCore
 {
+    [TestFixture]
     public class TestHelpers
     {
         [SetUp]
-        public void Setup()
-        {
-        }
+        public void Setup() { }
 
-
-        //Happy flow
         [Test]
         public void TestPasswordHelperReturnsTrue()
         {
@@ -26,8 +25,6 @@ namespace TestCore
             Assert.IsTrue(PasswordHelper.VerifyPassword(password, passwordHash));
         }
 
-
-        //Unhappy flow
         [Test]
         public void TestPasswordHelperReturnsFalse()
         {
@@ -42,3 +39,4 @@ namespace TestCore
         }
     }
 }
+#endif
