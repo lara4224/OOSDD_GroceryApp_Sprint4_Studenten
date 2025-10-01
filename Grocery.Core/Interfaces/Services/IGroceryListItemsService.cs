@@ -16,6 +16,5 @@ namespace Grocery.Core.Interfaces.Services
         public GroceryListItem? Get(int id);
 
         public GroceryListItem? Update(GroceryListItem item);
-        public List<BestSellingProducts> GetBestSellingProducts(int topX = 5);
     }
 }

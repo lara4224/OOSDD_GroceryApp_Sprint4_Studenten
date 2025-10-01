@@ -49,11 +49,6 @@ namespace Grocery.Core.Services
             return _groceriesRepository.Update(item);
         }
 
-        public List<BestSellingProducts> GetBestSellingProducts(int topX = 5)
-        {
-            throw new NotImplementedException();
-        }
-
         private void FillService(List<GroceryListItem> groceryListItems)
         {
             foreach (GroceryListItem g in groceryListItems)
