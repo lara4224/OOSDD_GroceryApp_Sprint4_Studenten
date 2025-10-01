@@ -34,8 +34,6 @@ jobs:
 
       - name: Run unit tests
         run: dotnet test TestCore/TestCore.csproj --framework net8.0-android --configuration Release --no-build --verbosity normal
-```
-        run: dotnet build Grocery.App/Grocery.App.csproj --configuration Release --no-restore --framework net8.0-android /p:ApplicationId=nl.windesheim.groceryapp
- 
+       
       - name: Voer unit tests uit
         run: dotnet test Grocery.sln
