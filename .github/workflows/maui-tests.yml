@@ -30,10 +30,8 @@ jobs:
         run: dotnet restore
 
       - name: Build Android app
-        run: dotnet build Grocery.App/Grocery.App.csproj --configuration Release --no-restore
+        run: dotnet build Grocery.App/Grocery.App.csproj --configuration Release --no-restore -f net8.0-android
 
       - name: Run unit tests
         run: dotnet test TestCore/TestCore.csproj --framework net8.0 --configuration Release --no-build --verbosity normal
 
-      - name: Voer unit tests uit
-        run: dotnet test Grocery.sln
