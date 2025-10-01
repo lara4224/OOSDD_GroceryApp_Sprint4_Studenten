@@ -4,21 +4,14 @@ on:
   push:
     branches:
       - main
-      - development
-      - release
-      - hotfix
-      - feature
+      - infra/runner-toevoegen
   pull_request:
     branches:
       - main
-      - development
-      - release
-      - hotfix
-      - feature
  
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Of windows-latest/macOS-latest als specifiek platform nodig is
     steps:
       - name: Haal de repository op
         uses: actions/checkout@v4
@@ -35,7 +28,7 @@ jobs:
         run: dotnet restore
  
       - name: Bouw de applicatie
-        run: dotnet build Grocery.App/Grocery.App.csproj --configuration Release --no-restore --framework net8.0-android /p:ApplicationId=nl.windesheim.groceryapp
+        run: dotnet build --configuration Release --no-restore
  
       - name: Voer unit tests uit
-        run: dotnet test Grocery.sln
+        run: dotnet test --configuration Release --no-restore --no-build --verbosity normal
