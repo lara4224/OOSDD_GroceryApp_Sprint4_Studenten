@@ -25,6 +25,5 @@ namespace TestCore
         {
             Assert.IsTrue(PasswordHelper.VerifyPassword(password, passwordHash));
         }
-
     }
 }
